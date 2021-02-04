@@ -1,0 +1,35 @@
+SRC DEST    COMMAND
+C   S       LOGIN username password
+C   S       REGISTER username password
+S   C       AUTHERROR CODE
+            0: Empty field (handled by client)
+            1: User already logged in
+            2: Invalid credentials
+            3: User already exists
+            4: Could not connect to cluster
+
+S   C       AUTHSUCCESS [ACTIVE PLAYER NAMES]
+C   S       LOGOUT
+S   C       FORCELOGOUT (When server shuts down)
+
+S   C       PLAYERJOINED name
+S   C       PLAYERLEFT name
+
+C   S       GSEND message
+S   C       GRECV message(s)
+
+C   S       CHALLENGE name
+S   C       REQUESTED name gameid
+C   S       ACCEPT name gameid
+C   S       REJECT name
+S   C       ACCEPTED name gameid
+S   C       REJECTED name
+
+C   S       MOVE col
+C   S       TIMEOUT
+C   S       FORFEIT
+S   C       FORFEITED name
+S   C       GAMEOVER boolean (TRUE = WIN, FALSE = LOSS)
+S   C       MOVED col
+C   S       LSEND message
+S   C       LRECV message
